@@ -1,0 +1,21 @@
+@if (count($Courses)>0)
+    <div class="row mt-4">
+        @foreach ($Courses as $course)
+        <div class="col col-sm-12 col-md-6">
+            <div class="card">
+            <img src="{{asset('/storage/'.$course->image)}}" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">{{$course->title}}</h5>
+                  <p class="card-text">{!!$course->description!!}</p>
+                  <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight"><a href="{{route("newcourse",['course'=>$course])}}" class="btn btn-primary">Go view Course</a></div>
+                    <div class="ml-auto p-2 bd-highlight"><a href="{{route("course-content",['course'=>$course])}}" class="btn btn-secondary">Course Content</a></div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+        @endforeach
+    </div>
+@endif
